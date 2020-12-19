@@ -3,6 +3,7 @@ import urllib
 import pandas as pd
 from datetime import datetime
 import numpy as np
+import dateutil.parser
 from datetime import timedelta
 import time
 import datetime
