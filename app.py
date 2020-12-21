@@ -404,6 +404,7 @@ def buble_district12():
     DISSCHOOL=df1111[["NAME_DISTRICT","SCHOOL COUNT"]]
     finmergeufosch=pd.merge(finmergeufo, DISSCHOOL, how='left', left_on='NAME_DISTRICT_x', right_on='NAME_DISTRICT')
     finmergeufoschprac=pd.merge(finmergeufosch, DISPRACTO, how='left', left_on='NAME_DISTRICT_x', right_on='NAME_DISTRICT')
+    finmergeufoschprac=finmergeufoschprac.fillna(0)
     final_buuble_data=finmergeufoschprac[["NAME_DISTRICT_x","MONTH_x","USER ENGAGEMENT","FAMILY ENGAGEMENT","SCHOOL COUNT","PRACTICE"]]
     finaldata=final_buuble_data.rename(columns={"NAME_DISTRICT_x": "DISTRICT_NAME","USER ENGAGEMENT":"USER_ENGAGEMENT","SCHOOL COUNT":"SCHOOL_COUNT", "FAMILY ENGAGEMENT":"FAMILY_ENGAGEMENT","MONTH_x": "MONTH"})
     finaldata=finaldata.loc[:,~finaldata.columns.duplicated()]
