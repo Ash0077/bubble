@@ -425,7 +425,7 @@ def buble_district12():
 # py2.7, for python3, please use import io
 
 # app = Flask(__name__)
-@app.route('/bubble/<disid>/csv')
+@app.route('/bubble/<disid>/data.csv')
 def schdistrict(disid):  
     disdic={'5f2609807a1c0000950bb465':'Middleton - Cross Plains Area School District',
     '5f2609807a1c0000950bb475':'Agawam School district',
