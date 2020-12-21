@@ -424,7 +424,7 @@ def buble_district12():
 # py2.7, for python3, please use import io
 
 # app = Flask(__name__)
-@app.route('/bubble/<disid>.csv')
+@app.route('/bubble/<disid>/csv')
 def schdistrict(disid):  
     disdic={'5f2609807a1c0000950bb465':'Middleton - Cross Plains Area School District',
     '5f2609807a1c0000950bb475':'Agawam School district',
@@ -840,8 +840,8 @@ def schdistrict(disid):
     final_buuble_data=finmergeufoschprac[["NAME_DISTRICT_x","MONTH_x","USER ENGAGEMENT","FAMILY ENGAGEMENT","USER COUNT","PRACTICE"]]
     finaldata=final_buuble_data.rename(columns={"NAME_DISTRICT_x": "DISTRICT_NAME","USER ENGAGEMENT":"USER_ENGAGEMENT","USER COUNT":"USER_COUNT", "FAMILY ENGAGEMENT":"FAMILY_ENGAGEMENT","MONTH_x": "MONTH"})
     finaldata=finaldata.loc[:,~finaldata.columns.duplicated()]
-    finaldata=finaldata.fillna(0)
-    li = [finaldata.columns.values.tolist()] + finaldata.values.tolist() 
+    finaldata1=finaldata.fillna(0)
+    li = [finaldata1.columns.values.tolist()] + finaldata1.values.tolist() 
     sheet = pe.Sheet(li)
     print(sheet,"sheet")
     print(type(sheet),"sheet type")
@@ -857,10 +857,4 @@ def schdistrict(disid):
 
 if __name__ == '__main__':
    app.run()
-
-
-
-
-
-
 
