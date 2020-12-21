@@ -377,10 +377,10 @@ def buble_district_csv():
     finaldata=final_buuble_data.rename(columns={"NAME_DISTRICT_x": "DISTRICT NAME", "MONTH_x": "MONTH"})
     finaldata=finaldata.loc[:,~finaldata.columns.duplicated()]
    
-    output = StringIO()
-    finaldata.to_csv(output)
+#     output = StringIO()
+#     finaldata.to_csv(output)
 
-    return Response(output.getvalue(), mimetype="text/csv")
+    return Response(finaldata.to_csv())
 #     return (fig_json)
 @app.route('/bubbledis')
 def buble_district():
